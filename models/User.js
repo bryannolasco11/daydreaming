@@ -28,3 +28,14 @@ const UserSchema = new Schema(
         ]
     }
 );
+
+// virtual for length of the user's friends
+UserSchema.virtual('friendCount').get(function() {
+    return this.comments.reduce((total, friend) => total + comment.replies.length +1, 0);
+});
+
+// create the User model using the PizzaSchema
+const User = model('User', UserSchema);
+
+// export the User model
+module.exports = User;
