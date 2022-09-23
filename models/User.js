@@ -26,12 +26,19 @@ const UserSchema = new Schema(
                 ref: 'Friend'
             }
         ]
+    },
+    {
+        toJSON: {
+            virtuals: true,
+            getters: true
+        },
+        id: false
     }
 );
 
 // virtual for length of the user's friends
 UserSchema.virtual('friendCount').get(function() {
-    return this.comments.reduce((total, friend) => total + comment.replies.length +1, 0);
+    return this.friends.length;
 });
 
 // create the User model using the PizzaSchema
