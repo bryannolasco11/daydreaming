@@ -1,0 +1,24 @@
+{
+  "name": "daydreaming",
+  "version": "1.0.0",
+  "description": "social media network for thoughts, reactions, and friends",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryannolasco11/daydreaming.git"
+  },
+  "author": "Bryan Nolasco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bryannolasco11/daydreaming/issues"
+  },
+  "homepage": "https://github.com/bryannolasco11/daydreaming#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.1"
+  }
+}
