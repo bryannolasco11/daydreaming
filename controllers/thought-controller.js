@@ -38,7 +38,27 @@ const thoughtController = {
             res.json(dbUserData);
         })
         .catch(err => res.json(err));
-    }
+    },
+    getThoughtById({ params}, res) {
+        console.log(params)
+        Thought.findOne({ thoughtId: params.id })
+        .populate({
+            path: 'reactions',
+            select: '-__v'
+        })
+        .select('-__v')
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'No user found with this id!' });
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        });
+    },
 };
 
 
