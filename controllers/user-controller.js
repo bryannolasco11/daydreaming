@@ -4,6 +4,10 @@ const userController = {
     // get all users
     getAllUser(req, res) {
         User.find({})
+        .populate({
+            path: 'thoughts',
+            select: '-__v'
+        })
             .select('-__v')
             .sort({ _id: -1 })
             .then(dbUserData => res.json(dbUserData))
@@ -16,6 +20,10 @@ const userController = {
     getUserById({ params }, res) {
         console.log(params.id)
         User.findOne({ _id: params.id })
+        .populate({
+            path: 'thoughts',
+            select: '-__v'
+        })
             .select('-__v')
             .then(dbUserData => {
                 // If no user is found, send 404
