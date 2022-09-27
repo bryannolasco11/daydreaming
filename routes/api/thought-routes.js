@@ -18,9 +18,9 @@ router
     .route('/:userId')
     .post(addThought)
     
-// /api/thoughts/<userId/<thoughtId>
+// /api/thoughts/<thoughtId>
 router
-    .route('/:userId/:thoughtId')
+    .route('/:thoughtId')
     .get(getThoughtById)
     .put(updateThought)
     .delete(deleteThought)
